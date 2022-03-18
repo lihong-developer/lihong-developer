@@ -25,13 +25,19 @@
     function Person(name, age) {
         this.name = name
         this.age = age
+        this.say2 = () => {
+            document.write(this.name)
+        }
+        // return {
+        //     name: 'other'
+        // }
     }
 
-    Person.prototype.say = function () {
-        console.log(this.name)
+    Person.prototype.say1 = function () {
         document.write(this.name)
     }
 
     let p1 = new1(Person, 'lihong', 18)
-    p1.say()
+    // p1.say1()
+    // p1.say2()
 </script>

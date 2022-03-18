@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    Function.prototype.call1 = function (context, ...args) {
+        if (!context) {
+            context = window
+        }
+        let fn = Symbol()
+        // 将要执行的对应方法 这里指handleSay 放进context对象中
+        // 然后执行该方法 对应的this指向也就为context
+        context[fn] = this
+        return context[fn](...args)
+    }
+    let person = {
+        name: 'lihong',
+        age: 22,
+        say1: function () {
+            console.log(this)
+        }
+    }
+    let handleSay = function (something) {
+        document.write(this.name, ' ', something)
+    }
+    // handleSay.call1(person, 'hello')
+    person.say1()
+</script>

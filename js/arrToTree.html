@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let arr = [{ id: 1, name: 1, parentId: 0 }, { id: 2, name: 2, parentId: 1 }, { id: 3, name: 3, parentId: 1 }, { id: 4, name: 4, parentId: 3 }]
+    let map = new Map()
+    let root = null
+    arr.map(item => {
+        let { id, name, parentId } = item
+        map.set(id, )
+        if (parentId === 0) root = map.get(id)
+    })
+    arr.map(item => {
+        let { id, name, parentId } = item
+        let parent = map.get(parentId)
+        if (parent) {
+            if (!item.children) item.children = []
+            parent.children.push(item)
+        }
+    })
+    console.log(root)
+</script>
+
+</html>
